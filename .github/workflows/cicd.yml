@@ -21,6 +21,13 @@ jobs:
           apt update -y
           apt install -y default-jdk build-essential bison flex gettext texinfo automake autoconf libgmp3-dev
 
+      - name : Install bakery db
+        run: |
+          cd db-18.1.40
+          dist/configure
+          make
+          make install
+
       - name: Checkout opensource COBOL
         uses: actions/checkout@v3
       

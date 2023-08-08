@@ -26,7 +26,6 @@ jobs:
       
       - name : Install bakery db
         run: |
-          mkdir db/doc/bdb-sql db/doc/gsg_db_server
           cd db
           dist/configure
           make

@@ -23,7 +23,7 @@ jobs:
 
       - name : Install bakery db
         run: |
-          sudo cd db-18.1.40
+          cd db-18.1.40
           dist/configure
           make
           make install

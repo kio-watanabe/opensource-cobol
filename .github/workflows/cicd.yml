@@ -19,7 +19,7 @@ jobs:
         if: matrix.os == 'ubuntu:22.04'
         run: |
           apt update -y
-          apt install -y default-jdk build-essential bison flex gettext texinfo automake autoconf
+          apt install -y default-jdk build-essential bison flex gettext texinfo automake autoconf libgmp3-dev
 
       - name: Checkout opensource COBOL
         uses: actions/checkout@v3

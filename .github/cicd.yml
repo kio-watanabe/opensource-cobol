@@ -1,0 +1,32 @@
+name: test
+
+jobs:
+  run-tests:
+    strategy:
+      matrix:
+        os: ["ubuntu:22.04"]
+    runs-on: ubuntu-latest
+    container:
+      image: ${{ matrix.os }}
+    steps:
+        
+      - name: Install dependencies on Ubuntu 22.04
+        if: matrix.os == 'ubuntu:22.04'
+        run: |
+          apt update -y
+          apt install -y default-jdk build-essential bison flex gettext texinfo automake autoconf
+
+      - name: Checkout opensource COBOL
+        uses: actions/checkout@v3
+      
+      - name: Install opensource COBOL
+        run: |
+          ./configure --prefix=/usr/
+          make
+          make install
+
+      - name: Run sample.cbl
+        run: |
+          cd sample/
+          cobc sample.cbl
+          cobcrun sample

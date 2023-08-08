@@ -438,7 +438,7 @@ cob_move_display_to_packed (cob_field *f1, cob_field *f2)
 	data2 = f2->data;
 	digits2 = COB_FIELD_DIGITS (f2);
 	scale2 = COB_FIELD_SCALE (f2);
-
+	
 	/* null check */
 	flag_null = 1;
 	for (i = 0; i < digits1; i++) {
@@ -460,6 +460,7 @@ cob_move_display_to_packed (cob_field *f1, cob_field *f2)
 			n = (data1 <= p && p < data1 + digits1) ? cob_d2i (*p) : 0;
 		}
 		if (i % 2 == 0) {
+			printf("dbg: data length=%d\n",sizeof(data2));
 			data2[i / 2] = n << 4;
 		} else {
 			data2[i / 2] |= n;

@@ -23,7 +23,7 @@ jobs:
 
       - name : Install bakery db
         run: |
-          cd db
+          cd db/
           dist/configure
           make
           make install

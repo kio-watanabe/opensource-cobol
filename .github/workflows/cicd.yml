@@ -20,9 +20,6 @@ jobs:
         run: |
           apt update -y
           apt install -y default-jdk build-essential bison flex gettext texinfo automake autoconf libgmp3-dev
-
-      - name : Install bakery db
-        run: |
           cd db/
           dist/configure
           make
